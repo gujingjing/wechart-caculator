@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/addpage/addpage",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "记账统计模仿",
+    "navigationBarTextStyle":"black"
+  }
+}

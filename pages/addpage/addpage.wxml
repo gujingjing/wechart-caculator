@@ -1,0 +1,45 @@
+<view class="page">
+
+    <view class="section">
+        <view class="section_title">标题</view>
+        <input placeholder="请输入标题" value="{{title}}" bindinput="bindTitleInput"></input>
+    </view>
+
+    <view class="section">
+        <view class="section_title">类型</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio" wx:for-items="{{items}}">
+                    <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+                </label>
+            </radio-group>
+    </view>
+
+    <view class="section">
+        <view class="section_title">金额</view>
+        <input placeholder="请输入金额,不加正负号" value="{{cashNumber}}" type="cashNumber" bindinput="bindCashInput"></input>
+    </view>
+
+    <view class="section">
+        <picker mode="date" value="{{date}}" start="2015-05-12" end="{{date}}" bindchange="bindTimeChange">
+            <view class="section_title">
+                日期: {{date}}
+            </view>
+        </picker>
+    </view>
+
+    <button wx:if="{{id}}" class="button" type="primary" bindtap="buttonEditClick">编辑</button>
+    <button wx:else class="button" type="primary" bindtap="buttonAddClick">添加</button>
+    <button wx:if="{{id}}" class="button" type="default" bindtap="buttonDelClick">删除</button>
+
+
+<view class="body-view">
+    <toast hidden="{{toastHidden}}" duration="1500" bindchange="toastChange">
+        {{toastMessage}}
+    </toast>
+</view>
+
+<modal title="标题" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="modalChange" bindcancel="modalChange">
+    {{modalMessage}}
+</modal>
+
+</view>

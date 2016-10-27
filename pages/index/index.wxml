@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container news-list">
+  <view class="navi">
+    <button class="add-button" size="default" type="warn" bindtap="addItem">添加收支</button>
+  </view>
+  <block wx:for="{{items}}">
+    <view class="news-item" data-id="{{item.id}}" bindtap="itemTap">
+      <view class="news-text">
+        <text class="news-title">{{item.title}}</text>
+        <view class="news-stamp">
+          <text wx:if="{{item.cate == '-'}}" class="sign-green">{{item.cate}} {{item.account}}</text>
+          <text wx:else class="sign-red">{{item.cate}} {{item.account}}</text>
+          <text>{{item.date}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>
